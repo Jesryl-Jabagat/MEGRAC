@@ -1,8 +1,8 @@
-// Demo credentials (In production, this should be handled by your backend)
-const validCredentials = {
-    'admin': 'password123',
-    'user': 'user123',
-    'manager': 'manager123'
+// Demo credentials with roles (In production, handle via backend)
+const users = {
+    'admin':   { password: 'password123', role: 'admin' },
+    'user':    { password: 'user123',     role: 'user' },
+    'manager': { password: 'manager123',  role: 'manager' }
 };
 
 // Check if user is already logged in
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentUser = sessionStorage.getItem('currentUser');
     
     if (isLoggedIn === 'true' && currentUser) {
-        window.location.href="index.html";
+        window.location.href="../index.html";
     }
 });
 
@@ -23,11 +23,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('errorMessage');
 
-    if (validCredentials[username] && validCredentials[username] === password) {
+    if (users[username] && users[username].password === password) {
         // Successful login
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('currentUser', username);
-        window.location.href="index.html";
+        sessionStorage.setItem('currentRole', users[username].role);
+        window.location.href="../index.html";
         errorMessage.style.display = 'none';
     } else {
         // Failed login

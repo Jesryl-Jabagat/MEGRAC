@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>MEGRAC IMS</title>
+    <script src="assets/js/auth.js"></script>
 </head>
 <body>
     <!-- Sidebar -->
@@ -18,34 +19,14 @@
             <div class="nav-section">
                 <h3 class="nav-title">Main Menu</h3>
                 <ul class="nav-menu">
-                    <li class="nav-item dashboard active" onclick="showSection('dashboard-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Dashboard</span>
-                    </li>
-                    <li class="nav-item inventory" onclick="showSection('inventory-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Inventory</span>
-                    </li>
-                    <li class="nav-item sales" onclick="showSection('sales-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Sales</span>
-                    </li>
-                    <li class="nav-item purchases" onclick="showSection('purchases-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Purchases</span>
-                    </li>
-                    <li class="nav-item customers" onclick="showSection('customers-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Customers</span>
-                    </li>
-                    <li class="nav-item suppliers" onclick="showSection('suppliers-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Suppliers</span>
-                    </li>
-                    <li class="nav-item transactions" onclick="showSection('transactions-section')">
-                        <span class="nav-icon"></span>
-                        <span class="nav-text">Transactions</span>
-                    </li>
+                    <li class="nav-item dashboard active"><a href="index.html" class="nav-text">Dashboard</a></li>
+                    <li class="nav-item inventory"><a href="pages/inventory.html" class="nav-text">Inventory</a></li>
+                    <li class="nav-item sales"><a href="pages/sales.html" class="nav-text">Sales</a></li>
+                    <li class="nav-item purchases"><a href="pages/purchases.html" class="nav-text">Purchases</a></li>
+                    <li class="nav-item customers"><a href="pages/customers.html" class="nav-text">Customers</a></li>
+                    <li class="nav-item suppliers"><a href="pages/suppliers.html" class="nav-text">Suppliers</a></li>
+                    <li class="nav-item transactions"><a href="pages/transactions.html" class="nav-text">Transactions</a></li>
+                    <li class="nav-item cash"><a href="pages/cashcount.html" class="nav-text">Cash Count</a></li>
                 </ul>
             </div>
 
@@ -81,148 +62,38 @@
         <!-- Header -->
         <header class="header">
             <div class="header-left">
-                <div class="search-bar">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Search Bar dire" class="search-input">
-                </div>
+                <!-- Empty for now -->
             </div>
             <div class="header-right">
-                <div class="notification">
-                    <span class="notification-icon">🔔</span>
-                </div>
-                <div class="user-profile">
-                    <div class="user-avatar">👤</div>
-                    <span class="user-name">User</span>
-                    <span class="dropdown-arrow">▼</span>
+                <div class="user-profile-dropdown">
+                    <div class="user-profile" id="userProfileDropdown">
+                        <div class="user-avatar">👤</div>
+                        <span class="user-name">User</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    <div class="dropdown-menu" id="userDropdownMenu">
+                        <a href="#" class="dropdown-item" id="profileBtn">Profile</a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">Logout</a>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- Content -->
         <main class="content">
-            
-            <!-- Dashboard Page -->
-            <div id="dashboard-section" class="page-section active">
+            <!-- Dashboard Only -->
                 <div class="content-header">
                     <div class="content-title">
                         <h1>Dashboard</h1>
                         <p class="breadcrumb">Dashboard</p>
                     </div>
-                    
                 </div>
 
-                <!-- Dashboard content will go here -->
                 <div class="dashboard-content">
                     <div class="empty-state">
-                      
-                        </div>
+                    <p>Welcome to MEGRAC IMS Dashboard</p>
                 </div>
             </div>
-
-            <!-- Inventory Page -->
-            <div id="inventory-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Inventory</h1>
-                        <p class="breadcrumb">Inventory</p>
-                    </div>
-                    
-                </div>
-
-                
-                <!-- Inventory Table -->
-                
-            </div>
-
-            <!-- Sales Page -->
-            <div id="sales-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Sales</h1>
-                        <p class="breadcrumb">Sales</p>
-                    </div>
-                    
-                </div>
-
-                <!-- Sales content will go here -->
-                <div class="sales-content">
-                    <div class="empty-state">
-                        <p>Sales Management UI HERE</p>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Purchases Page -->
-            <div id="purchases-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Purchases</h1>
-                        <p class="breadcrumb">Purchases</p>
-                    </div>
-                    
-                </div>
-
-                <!-- Purchases content will go here -->
-                <div class="purchases-content">
-                    <div class="empty-state">
-                        <p>Purchase Management UI HERE</p>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Customers Page -->
-            <div id="customers-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Customers</h1>
-                        <p class="breadcrumb">Customers</p>
-                    </div>
-                    
-                </div>
-
-                <!-- Customers content will go here -->
-                <div class="customers-content">
-                    <div class="empty-state">
-                        <p>Customer Management UI HERE</p>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Suppliers Page -->
-            <div id="suppliers-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Suppliers</h1>
-                        <p class="breadcrumb">Suppliers</p>
-                    </div>
-                </div>
-
-                <!-- Suppliers content will go here -->
-                <div class="suppliers-content">
-                    <div class="empty-state">
-                        <p>Supplier Management UI HERE</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Transactions Page -->
-            <div id="transactions-section" class="page-section">
-                <div class="content-header">
-                    <div class="content-title">
-                        <h1>Transactions</h1>
-                        <p class="breadcrumb">Transactions</p>
-                    </div>
-                    
-                </div>
-
-                <!-- Transactions content will go here -->
-                <div class="transactions-content">
-                    <div class="empty-state">
-                        <p>Transaction Management UI HERE</p>
-                        </div>
-                </div>
-            </div>
-
         </main>
     </div>
     <script src="assets/js/app.js"></script>
